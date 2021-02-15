@@ -23,6 +23,7 @@ run/main_scene="res://Scenes/main.tscn"
 window/size/width=600
 window/size/height=400
 window/size/resizable=false
+window/stretch/aspect="keep"
 
 [rendering]
 
