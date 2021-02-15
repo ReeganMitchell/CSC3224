@@ -16,7 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="CSC3224"
-config/icon="res://icon.png"
+run/main_scene="res://Scenes/main.tscn"
+
+[display]
+
+window/size/width=600
+window/size/height=400
+window/size/resizable=false
 
 [rendering]
 
