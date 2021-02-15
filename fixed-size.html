@@ -192,7 +192,7 @@
 			font-family: "Lucida Console", Monaco, monospace;
 		}
 	</style>
-
+$GODOT_HEAD_INCLUDE
 </head>
 <body>
 	<div id="container">
@@ -223,16 +223,16 @@
 		<div id="output-container"><div id="output-scroll"></div></div>
 	</div>
 
-	<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript" src="$GODOT_BASENAME.js"></script>
 	<script type="text/javascript">//<![CDATA[
 
 		var engine = new Engine;
 
 		(function() {
 
-			const EXECUTABLE_NAME = 'index';
-			const MAIN_PACK = 'index.pck';
-			const DEBUG_ENABLED = true;
+			const EXECUTABLE_NAME = '$GODOT_BASENAME';
+			const MAIN_PACK = '$GODOT_BASENAME.pck';
+			const DEBUG_ENABLED = $GODOT_DEBUG_ENABLED;
 			const INDETERMINATE_STATUS_STEP_MS = 100;
 
 			var container = document.getElementById('container');
@@ -391,4 +391,3 @@
 	//]]></script>
 </body>
 </html>
-
