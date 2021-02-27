@@ -20,6 +20,7 @@ func _on_StartButton_pressed():
 	if (state == 0 ):
 		animplayer.play("StartGame")
 		state = 2
+		Global.goto_scene("res://Scenes/game.tscn")
 
 
 
