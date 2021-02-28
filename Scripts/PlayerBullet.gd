@@ -1,15 +1,9 @@
-extends Node
+extends Area2D
 
 
 # Declare member variables here. Examples:
-var life = 5
-var bomb = 3
-var power = 1
-var score = 0
-var pickup = 0
-var courage = 0
+var velocity = Vector2()
 
-signal power_change
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,8 +11,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _physics_process(delta):
+	position += velocity * delta
 
-func updatePower():
-	emit_signal("power_change")
+
+func _on_screen_exited():
+	queue_free()

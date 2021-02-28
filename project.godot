@@ -20,8 +20,8 @@ run/main_scene="res://Scenes/game.tscn"
 
 [autoload]
 
+Global="*res://Scenes/Global.tscn"
 PlayerVariables="*res://Scripts/playerVariables.gd"
-Global="*res://Scripts/Global.gd"
 
 [display]
 

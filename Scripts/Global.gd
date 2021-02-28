@@ -2,7 +2,7 @@ extends Node2D
 
 
 var current_scene = null
-
+signal power_change
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
