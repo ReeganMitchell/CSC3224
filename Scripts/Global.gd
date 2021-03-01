@@ -2,17 +2,17 @@ extends Node2D
 
 
 var current_scene = null
-signal power_change
+var ScorePickup
+var PowerPickup
+var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	rng.randomize()
+	ScorePickup = load("res://Scenes/ScorePickup.tscn")
+	PowerPickup = load("res://Scenes/PowerPickup.tscn")
 
 func goto_scene(path):
 	call_deferred("_deferred_goto_scene", path)
@@ -32,3 +32,8 @@ func _deferred_goto_scene(path):
 	
 	# Optionally, to make it compatible with the SceneTree.change_scene() API.
 	get_tree().set_current_scene(current_scene)
+
+func badEnd():
+	for _i in PlayerVariables.get_children():
+		_i.queue_free()
+	goto_scene("res://Scenes/mainScreen.tscn")

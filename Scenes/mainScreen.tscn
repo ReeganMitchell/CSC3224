@@ -1,7 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/mainScreen.gd" type="Script" id=1]
 [ext_resource path="res://Animations/HowToPlay.tres" type="Animation" id=2]
+[ext_resource path="res://Sprites/Placeholders/en_tank.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Placeholders/en_turret.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Placeholders/en_drone.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Placeholders/en_bullet0.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Placeholders/ScorePickup.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Placeholders/PowerPickup.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "StartGame"
@@ -47,6 +53,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="title" type="Label" parent="Menu"]
+margin_left = 214.215
+margin_top = 140.095
+margin_right = 376.215
+margin_bottom = 154.095
+text = "CSC3224 Reegan mitchell"
+
+[node name="arrow" type="Label" parent="Menu"]
+margin_left = 370.6
+margin_top = 302.996
+margin_right = 479.6
+margin_bottom = 316.996
+text = "<-- click me first!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="How to play" type="Control" parent="."]
 margin_left = -601.0
 margin_right = -1.0
@@ -61,6 +84,95 @@ margin_top = 300.0
 margin_right = 350.0
 margin_bottom = 320.0
 text = "Back to Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Label" parent="How to play"]
+margin_left = 200.0
+margin_top = 43.0
+margin_right = 431.0
+margin_bottom = 159.0
+text = "Arrow keys: Movement
+
+Z key: Shoot
+
+X key: Bomb
+
+Left Shift key: Slow down movement"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoodLabel" type="Label" parent="How to play"]
+margin_left = 66.0
+margin_top = 178.0
+margin_right = 160.0
+margin_bottom = 209.0
+text = "Good: 
+(Pick these up)"
+
+[node name="BadLabel" type="Label" parent="How to play"]
+margin_left = 410.0
+margin_top = 178.0
+margin_right = 549.0
+margin_bottom = 209.0
+text = "Bad:
+(avoid or shoot these)"
+
+[node name="PowerPickup" type="TextureRect" parent="How to play"]
+margin_left = 65.0
+margin_top = 222.0
+margin_right = 105.0
+margin_bottom = 262.0
+texture = ExtResource( 8 )
+
+[node name="ScorePickup" type="TextureRect" parent="How to play"]
+margin_left = 68.0
+margin_top = 251.0
+margin_right = 108.0
+margin_bottom = 291.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="drone" type="TextureRect" parent="How to play"]
+margin_left = 406.0
+margin_top = 219.0
+margin_right = 446.0
+margin_bottom = 259.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="turret" type="TextureRect" parent="How to play"]
+margin_left = 452.0
+margin_top = 220.0
+margin_right = 492.0
+margin_bottom = 260.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tank" type="TextureRect" parent="How to play"]
+margin_left = 413.0
+margin_top = 252.0
+margin_right = 477.0
+margin_bottom = 316.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bullet" type="TextureRect" parent="How to play"]
+margin_left = 443.83
+margin_top = 230.132
+margin_right = 507.83
+margin_bottom = 294.132
+texture = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
