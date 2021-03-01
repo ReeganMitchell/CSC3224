@@ -1,0 +1,4 @@
+Link to Github Repository: https://github.com/ReeganMitchell/CSC3224
+Link to Github Page for built game: https://reeganmitchell.github.io/CSC3224/
+
+Windows Build of game is contained inside "windows_build" folder

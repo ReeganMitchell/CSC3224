@@ -368,6 +368,18 @@ text = "Back to Main Menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ClickLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 30.1389
+margin_top = 335.203
+margin_right = 181.139
+margin_bottom = 366.203
+text = "Click this once ^
+enemies stop spawning"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="LevelTimer" to="." method="_advance_stage"]
 [connection signal="toggled" from="HUD/DevHUD/InvButton" to="." method="_on_InvButton_toggled"]
 [connection signal="toggled" from="HUD/DevHUD/HitboxButton" to="." method="_on_HitboxButton_toggled"]
