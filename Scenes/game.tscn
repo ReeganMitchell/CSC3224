@@ -1,14 +1,28 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Placeholders/HUDBck.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Enemies/En_drone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/game.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Border.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 200, 300 )
 
-[node name="HUD" type="Control" parent="."]
+[node name="En_drone" parent="." instance=ExtResource( 3 )]
+position = Vector2( 204.564, -56 )
+
+[node name="LevelTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Border" parent="." instance=ExtResource( 5 )]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="DevHUD" type="Control" parent="HUD"]
 margin_left = 400.0
 margin_right = 600.0
 margin_bottom = 400.0
@@ -16,7 +30,351 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="HUD"]
+[node name="TextureRect" type="TextureRect" parent="HUD/DevHUD"]
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 2 )
+
+[node name="InfoTitle" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 12.3859
+margin_top = 12.1991
+margin_right = 70.3864
+margin_bottom = 26.1991
+text = "Dev Info:"
+
+[node name="StateLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 10.7772
+margin_top = 37.1217
+margin_right = 50.7772
+margin_bottom = 51.1217
+text = "Player State:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="State" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 98.5023
+margin_top = 36.7546
+margin_right = 138.502
+margin_bottom = 50.7546
+text = "0"
+
+[node name="ScoreLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 12.9825
+margin_top = 54.3959
+margin_right = 55.9825
+margin_bottom = 68.3959
+text = "Score: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 99.2374
+margin_top = 55.867
+margin_right = 139.237
+margin_bottom = 69.867
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 12.2475
+margin_top = 73.1884
+margin_right = 52.2475
+margin_bottom = 87.1884
+text = "Life:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Life" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 99.2374
+margin_top = 72.7741
+margin_right = 139.237
+margin_bottom = 86.7741
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BombLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 10.7772
+margin_top = 91.6068
+margin_right = 56.7772
+margin_bottom = 105.607
+text = "Bomb: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bomb" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 99.9725
+margin_top = 93.3567
+margin_right = 139.972
+margin_bottom = 107.357
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PowerLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 10.7773
+margin_top = 112.563
+margin_right = 53.7773
+margin_bottom = 126.563
+text = "Power:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Power" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 102.178
+margin_top = 113.939
+margin_right = 142.178
+margin_bottom = 127.939
+text = "0"
+
+[node name="CourageLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 10.9995
+margin_top = 132.099
+margin_right = 65.9995
+margin_bottom = 146.099
+text = "Courage:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Courage" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 99.9725
+margin_top = 132.317
+margin_right = 139.972
+margin_bottom = 146.317
+text = "0"
+
+[node name="PickupLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 11.0264
+margin_top = 151.429
+margin_right = 51.0264
+margin_bottom = 165.429
+text = "Pickup: "
+
+[node name="Pickup" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 99.9725
+margin_top = 151.429
+margin_right = 139.973
+margin_bottom = 165.429
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToolsLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 66.8933
+margin_top = 170.542
+margin_right = 135.894
+margin_bottom = 184.542
+text = "Dev tools: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InvLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 18.3773
+margin_top = 191.859
+margin_right = 101.377
+margin_bottom = 205.859
+text = "Invincibility: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InvButton" type="CheckButton" parent="HUD/DevHUD"]
+margin_left = 111.734
+margin_top = 179.362
+margin_right = 187.734
+margin_bottom = 219.362
+
+[node name="HitboxLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 12.4966
+margin_top = 212.441
+margin_right = 112.497
+margin_bottom = 226.441
+text = "Show hitboxes: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HitboxButton" type="CheckButton" parent="HUD/DevHUD"]
+margin_left = 110.999
+margin_top = 202.886
+margin_right = 186.999
+margin_bottom = 242.886
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PowerLabel2" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 18.1282
+margin_top = 241.939
+margin_right = 61.1282
+margin_bottom = 255.939
+text = "Power:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PowerButton-" type="Button" parent="HUD/DevHUD"]
+margin_left = 74.4106
+margin_top = 238.656
+margin_right = 103.411
+margin_bottom = 258.656
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PowerButton+" type="Button" parent="HUD/DevHUD"]
+margin_left = 118.517
+margin_top = 237.921
+margin_right = 147.517
+margin_bottom = 257.921
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeLabel2" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 17.3931
+margin_top = 267.252
+margin_right = 57.3931
+margin_bottom = 281.252
+text = "Life:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeButton-" type="Button" parent="HUD/DevHUD"]
+margin_left = 72.9404
+margin_top = 263.649
+margin_right = 101.94
+margin_bottom = 283.649
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeButton+" type="Button" parent="HUD/DevHUD"]
+margin_left = 118.516
+margin_top = 264.384
+margin_right = 147.516
+margin_bottom = 284.384
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BombLabel2" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 15.7022
+margin_top = 291.368
+margin_right = 61.7022
+margin_bottom = 305.369
+text = "Bomb: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BombButton-" type="Button" parent="HUD/DevHUD"]
+margin_left = 72.8669
+margin_top = 287.025
+margin_right = 101.867
+margin_bottom = 307.025
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BombButton+" type="Button" parent="HUD/DevHUD"]
+margin_left = 119.251
+margin_top = 287.834
+margin_right = 148.251
+margin_bottom = 307.834
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpawnButton" type="MenuButton" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 32.3442
+margin_top = 312.525
+margin_right = 172.344
+margin_bottom = 332.525
+text = "Spawn enemy group"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FpsLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 111.734
+margin_top = 9.5562
+margin_right = 151.734
+margin_bottom = 23.5562
+text = "FPS: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FpsCounter" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 154.37
+margin_top = 9.5562
+margin_right = 194.37
+margin_bottom = 23.5562
+text = "0 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="Button" parent="HUD/DevHUD"]
+margin_left = 35.2845
+margin_top = 373.427
+margin_right = 169.284
+margin_bottom = 393.427
+text = "Back to Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="LevelTimer" to="." method="_advance_stage"]
+[connection signal="toggled" from="HUD/DevHUD/InvButton" to="." method="_on_InvButton_toggled"]
+[connection signal="toggled" from="HUD/DevHUD/HitboxButton" to="." method="_on_HitboxButton_toggled"]
+[connection signal="pressed" from="HUD/DevHUD/PowerButton-" to="." method="_on_PowerDownButton_pressed"]
+[connection signal="pressed" from="HUD/DevHUD/PowerButton+" to="." method="_on_PowerUpButton_pressed"]
+[connection signal="pressed" from="HUD/DevHUD/LifeButton-" to="." method="_on_LifeDownButton_pressed"]
+[connection signal="pressed" from="HUD/DevHUD/LifeButton+" to="." method="_on_LifeUpButton_pressed"]
+[connection signal="pressed" from="HUD/DevHUD/BombButton-" to="." method="_on_BombDownButton_pressed"]
+[connection signal="pressed" from="HUD/DevHUD/BombButton+" to="." method="_on_BombUpButton_pressed"]
+[connection signal="pressed" from="HUD/DevHUD/MenuButton" to="." method="_on_MenuButton_pressed"]

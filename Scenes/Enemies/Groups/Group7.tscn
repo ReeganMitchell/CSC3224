@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Enemies/En_tank.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Enemies/En_turret.tscn" type="PackedScene" id=2]
+
+[node name="Group7" type="Node2D"]
+position = Vector2( 0, -400 )
+
+[node name="En_tank2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 325, 340 )
+
+[node name="En_turret" parent="." instance=ExtResource( 2 )]
+position = Vector2( 112.11, 314.738 )
+
+[node name="En_turret2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 110.004, 207.37 )
+
+[node name="En_turret3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 108.952, 96.8426 )

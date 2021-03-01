@@ -16,12 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="CSC3224"
-run/main_scene="res://Scenes/game.tscn"
+run/main_scene="res://Scenes/mainScreen.tscn"
 
 [autoload]
 
+Global="*res://Scenes/Global.tscn"
 PlayerVariables="*res://Scripts/playerVariables.gd"
-Global="*res://Scripts/Global.gd"
 
 [display]
 
