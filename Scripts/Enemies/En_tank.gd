@@ -17,7 +17,7 @@ var seperation = 360
 func _ready():
 	state = 0
 	add_to_group("enemy")
-	Bullet = load("res://Scenes/Enemies/Bullets/Bullet0.tscn")
+	Bullet = load("res://Scenes/Enemies/Bullets/Bullet1.tscn")
 	
 	if global_position.x < 200:
 		exit = "left"

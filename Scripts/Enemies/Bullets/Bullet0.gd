@@ -23,3 +23,4 @@ func _on_Bullet0_area_entered(area):
 			queue_free()
 		if _i == "Bomb":
 			queue_free()
+

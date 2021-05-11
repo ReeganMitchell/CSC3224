@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pldead00.wav-b1103aa50b2e6ea67ef25a560a669cbe.sample"
+
+[deps]
+
+source_file="res://Sounds/pldead00.wav"
+dest_files=[ "res://.import/pldead00.wav-b1103aa50b2e6ea67ef25a560a669cbe.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

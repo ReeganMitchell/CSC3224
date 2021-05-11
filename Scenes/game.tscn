@@ -1,10 +1,85 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Placeholders/HUDBck.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Enemies/En_drone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/game.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Border.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Enemies/En_Boss.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/th06_13.wav" type="AudioStream" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Enter"
+length = 5.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Boss:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 200, -0.25, 0, 0.25, 0, 200, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Boss:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -200, -0.25, 0, 0.25, 0, 50, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 5 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Middle->Left"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Boss:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 200, -0.25, 0, 0.25, 0, 90, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Boss:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 50, -0.25, 0, 0.25, 0, 100, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 4 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Middle->Right"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Boss:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 200, -0.25, 0, 0.25, 0, 310, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Boss:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 50, -0.25, 0, 0.25, 0, 100, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 4 )
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -61,129 +136,6 @@ margin_top = 36.7546
 margin_right = 138.502
 margin_bottom = 50.7546
 text = "0"
-
-[node name="ScoreLabel" type="Label" parent="HUD/DevHUD"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 12.9825
-margin_top = 54.3959
-margin_right = 55.9825
-margin_bottom = 68.3959
-text = "Score: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Score" type="Label" parent="HUD/DevHUD"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 99.2374
-margin_top = 55.867
-margin_right = 139.237
-margin_bottom = 69.867
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LifeLabel" type="Label" parent="HUD/DevHUD"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 12.2475
-margin_top = 73.1884
-margin_right = 52.2475
-margin_bottom = 87.1884
-text = "Life:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Life" type="Label" parent="HUD/DevHUD"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 99.2374
-margin_top = 72.7741
-margin_right = 139.237
-margin_bottom = 86.7741
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BombLabel" type="Label" parent="HUD/DevHUD"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 10.7772
-margin_top = 91.6068
-margin_right = 56.7772
-margin_bottom = 105.607
-text = "Bomb: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Bomb" type="Label" parent="HUD/DevHUD"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 99.9725
-margin_top = 93.3567
-margin_right = 139.972
-margin_bottom = 107.357
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PowerLabel" type="Label" parent="HUD/DevHUD"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 10.7773
-margin_top = 112.563
-margin_right = 53.7773
-margin_bottom = 126.563
-text = "Power:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Power" type="Label" parent="HUD/DevHUD"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 102.178
-margin_top = 113.939
-margin_right = 142.178
-margin_bottom = 127.939
-text = "0"
-
-[node name="CourageLabel" type="Label" parent="HUD/DevHUD"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 10.9995
-margin_top = 132.099
-margin_right = 65.9995
-margin_bottom = 146.099
-text = "Courage:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Courage" type="Label" parent="HUD/DevHUD"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 99.9725
-margin_top = 132.317
-margin_right = 139.972
-margin_bottom = 146.317
-text = "0"
-
-[node name="PickupLabel" type="Label" parent="HUD/DevHUD"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 11.0264
-margin_top = 151.429
-margin_right = 51.0264
-margin_bottom = 165.429
-text = "Pickup: "
-
-[node name="Pickup" type="Label" parent="HUD/DevHUD"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 99.9725
-margin_top = 151.429
-margin_right = 139.973
-margin_bottom = 165.429
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ToolsLabel" type="Label" parent="HUD/DevHUD"]
 modulate = Color( 0, 0, 0, 1 )
@@ -369,17 +321,149 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ClickLabel" type="Label" parent="HUD/DevHUD"]
+[node name="ScoreLabel" type="Label" parent="HUD/DevHUD"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 30.1389
-margin_top = 335.203
-margin_right = 181.139
-margin_bottom = 366.203
-text = "Click this once ^
-enemies stop spawning"
+margin_left = 12.9825
+margin_top = 54.3959
+margin_right = 55.9825
+margin_bottom = 68.3959
+text = "Score: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Score" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 99.2374
+margin_top = 55.867
+margin_right = 139.237
+margin_bottom = 69.867
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 12.2475
+margin_top = 73.1884
+margin_right = 52.2475
+margin_bottom = 87.1884
+text = "Life:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Life" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 99.2374
+margin_top = 72.7741
+margin_right = 139.237
+margin_bottom = 86.7741
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BombLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 10.7772
+margin_top = 91.6068
+margin_right = 56.7772
+margin_bottom = 105.607
+text = "Bomb: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bomb" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 99.9725
+margin_top = 93.3567
+margin_right = 139.972
+margin_bottom = 107.357
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PowerLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 10.7773
+margin_top = 112.563
+margin_right = 53.7773
+margin_bottom = 126.563
+text = "Power:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Power" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 102.178
+margin_top = 113.939
+margin_right = 142.178
+margin_bottom = 127.939
+text = "0"
+
+[node name="CourageLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 10.9995
+margin_top = 132.099
+margin_right = 65.9995
+margin_bottom = 146.099
+text = "Courage:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Courage" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 99.9725
+margin_top = 132.317
+margin_right = 139.972
+margin_bottom = 146.317
+text = "0"
+
+[node name="PickupLabel" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 11.0264
+margin_top = 151.429
+margin_right = 61.0264
+margin_bottom = 165.429
+text = "Pickup: "
+
+[node name="Pickup" type="Label" parent="HUD/DevHUD"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 99.9725
+margin_top = 151.429
+margin_right = 139.973
+margin_bottom = 165.429
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BossAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Enter = SubResource( 1 )
+anims/Middle->Left = SubResource( 2 )
+anims/Middle->Right = SubResource( 3 )
+
+[node name="Boss" parent="." instance=ExtResource( 6 )]
+position = Vector2( 200, -200 )
+
+[node name="BossMoveTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
 [connection signal="timeout" from="LevelTimer" to="." method="_advance_stage"]
 [connection signal="toggled" from="HUD/DevHUD/InvButton" to="." method="_on_InvButton_toggled"]
 [connection signal="toggled" from="HUD/DevHUD/HitboxButton" to="." method="_on_HitboxButton_toggled"]
@@ -390,3 +474,5 @@ __meta__ = {
 [connection signal="pressed" from="HUD/DevHUD/BombButton-" to="." method="_on_BombDownButton_pressed"]
 [connection signal="pressed" from="HUD/DevHUD/BombButton+" to="." method="_on_BombUpButton_pressed"]
 [connection signal="pressed" from="HUD/DevHUD/MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="timeout" from="BossMoveTimer" to="." method="_on_BossMoveTimer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

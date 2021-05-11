@@ -2,7 +2,7 @@ extends Area2D
 
 var pos = Vector2()
 var state = 0 #0 = normal, 1 = invincible, 2 = cutscene
-var speed = 200
+var speed = 250
 var velocity = Vector2()
 var mult = 1
 
@@ -50,11 +50,11 @@ func setPower():
 		1:
 			noBullets = 1
 			seperation = 0
-			cooldown = 0.3
+			cooldown = 0.4
 		2:
 			noBullets = 2
 			seperation = 8
-			cooldown = 0.3
+			cooldown = 0.35
 		3:
 			noBullets = 3
 			seperation = 12
@@ -62,11 +62,11 @@ func setPower():
 		4:
 			noBullets = 4
 			seperation = 16
-			cooldown = 0.2
+			cooldown = 0.25
 		5:
 			noBullets = 5
 			seperation = 20
-			cooldown = 0.1
+			cooldown = 0.2
 
 func setState():
 	state = PlayerVariables.state
@@ -93,6 +93,7 @@ func shoot():
 		bullet.velocity = bullet.velocity.rotated(deg2rad(startAngle + (i * difference)))
 	
 	shootReady = false
+	$LaserSound.play()
 	$CooldownTimer.wait_time = cooldown
 	$CooldownTimer.start()
 
