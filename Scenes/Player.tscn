@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Final/Player.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Placeholders/playerhitbox.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/laser1.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 8.54329
+radius = 4.02723
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 31.7707
@@ -36,6 +37,10 @@ visible = false
 
 [node name="Sprite" type="Sprite" parent="CollisionSprites"]
 texture = ExtResource( 3 )
+
+[node name="LaserSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -20.0
 [connection signal="area_entered" from="Courage" to="." method="_on_Courage_area_entered"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]
 [connection signal="timeout" from="BombTimer" to="." method="_on_BombTimer_timeout"]

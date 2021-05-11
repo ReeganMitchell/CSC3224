@@ -5,6 +5,7 @@ extends Node2D
 var stage = 0 #how far through the game
 var numStages = 9
 var nextGroup = load("res://Scenes/Enemies/Groups/Group0.tscn")
+var boss = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,9 +28,18 @@ func _advance_stage():
 		else:
 			$LevelTimer.wait_time = 6
 		$LevelTimer.start()
+	else:
+		$Timer.start()
 
 func load_next_group():
 	nextGroup = load("res://Scenes/Enemies/Groups/Group%d.tscn" % [stage])
+
+func beginBoss():
+	boss = 1
+	$BossAnimationPlayer.play("Enter")
+	$BossMoveTimer.wait_time = 5
+	$BossMoveTimer.start()
+	$Boss.activate()
 
 func updateHud():
 	$HUD/DevHUD/State.text = str(PlayerVariables.state)
@@ -95,3 +105,13 @@ func _on_BombUpButton_pressed():
 
 func _on_MenuButton_pressed():
 	Global.badEnd()
+
+
+func _on_BossMoveTimer_timeout():
+	$Boss.move()
+	$BossMoveTimer.wait_time = 10
+	$BossMoveTimer.start()
+
+
+func _on_Timer_timeout():
+	beginBoss()

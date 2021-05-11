@@ -8,6 +8,7 @@ onready var animplayer = $MenuAnimPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	state = 0
+	$Menu/BestScore.text = str(Global.bestScore)
 	animplayer.play_backwards("StartGame")
 
 

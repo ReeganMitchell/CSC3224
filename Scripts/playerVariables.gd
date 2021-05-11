@@ -57,4 +57,4 @@ func hit():
 			invincibleTimer.wait_time = 3
 			invincibleTimer.start()
 		else:
-			Global.badEnd()
+			Global.goodEnd()

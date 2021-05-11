@@ -4,6 +4,9 @@ extends Node2D
 var current_scene = null
 var ScorePickup
 var PowerPickup
+var scoremult = 1
+var finalScore = 0
+var bestScore = 0
 var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
@@ -33,7 +36,19 @@ func _deferred_goto_scene(path):
 	# Optionally, to make it compatible with the SceneTree.change_scene() API.
 	get_tree().set_current_scene(current_scene)
 
+func goodEnd():
+	for _i in PlayerVariables.get_children():
+		_i.queue_free()
+	
+	goto_scene("res://Scenes/Finish.tscn")
+
 func badEnd():
 	for _i in PlayerVariables.get_children():
 		_i.queue_free()
 	goto_scene("res://Scenes/mainScreen.tscn")
+
+func calcScore():
+	finalScore = PlayerVariables.score + PlayerVariables.pickup + PlayerVariables.courage
+	
+	if (finalScore > bestScore):
+		bestScore = finalScore
