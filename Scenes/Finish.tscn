@@ -7,7 +7,7 @@
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 295.875, 212.442 )
+position = Vector2( 301.756, 212.442 )
 scale = Vector2( 1.24846, 1 )
 texture = ExtResource( 2 )
 
@@ -122,6 +122,18 @@ margin_top = 210.0
 margin_right = 403.0
 margin_bottom = 229.0
 text = "Lives Multiplier:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Winner" type="Label" parent="."]
+margin_left = 229.742
+margin_top = 95.2385
+margin_right = 302.742
+margin_bottom = 118.238
+rect_scale = Vector2( 2, 2 )
+text = "You Win!"
+uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
