@@ -2,7 +2,7 @@ extends Area2D
 
 
 var score = 5000
-var health = 1
+var health = 60
 var stage = 0
 var pos = 0
 var animPlayer
